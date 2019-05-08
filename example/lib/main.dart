@@ -45,8 +45,7 @@ class _FilePathProviderApplicationState extends State<FilePathProviderApplicatio
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(title: Text('plugin sample for ${_getPlatformName()}')), body: _buildApplicaitonBodyWidget()),
+      home: Scaffold(appBar: AppBar(title: Text('plugin sample for ${_getPlatformName()}')), body: _buildApplicaitonBodyWidget()),
     );
   }
 
@@ -178,7 +177,6 @@ class _FilePathProviderApplicationState extends State<FilePathProviderApplicatio
     setState(() {
       if (result.code == 0) {
         _directory = result.directory.path;
-        print('$result');
       } else {
         _directory = '读取错误：${result.code}  ${result.message}';
       }
