@@ -95,19 +95,14 @@ NSString* getInternalStorageTemporaryDirectory(){
     return NSTemporaryDirectory();
 }
 
-// 映射为 iOS 的 Library/Caches 目录
 NSString* getInternalStorageCacheDirectory(){
     return NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;
 }
 
-// 映射为 iOS 的 Document 目录
-// 有关应用的所有数据文件应该写入到这个目录下，用于存储用户数据或者其他应该定期备份的信息。
-// iTunes 会同步改应用程序的此文件内容，适合存储一些重要的数据
 NSString* getInternalStorageFileDirectory(){
     return NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES).firstObject;
 }
 
-// 沙盒主目录路径
 NSString* getHomeDirectory(){
     return NSHomeDirectory();
 }
