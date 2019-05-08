@@ -10,7 +10,7 @@
 
 ```
  dependencies:
-   flutter_file_path_provider: ^0.0.2
+   flutter_file_path_provider: ^0.0.3
 ``` 
  
 第二步：使用如下命令安装插件：
