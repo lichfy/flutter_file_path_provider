@@ -3,8 +3,8 @@ package tech.fiissh.flutter.plugin.provider;
 import android.content.Context;
 import android.os.Environment;
 
-class ExternalStorageFlutterDirectory extends FlutterDirectory {
-    ExternalStorageFlutterDirectory(Context context) {
+class ExternalStorageDirectory extends FlutterDirectory {
+    ExternalStorageDirectory(Context context) {
         super(context);
     }
 

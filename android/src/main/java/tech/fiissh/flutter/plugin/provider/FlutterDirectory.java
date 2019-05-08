@@ -34,7 +34,7 @@ abstract class FlutterDirectory implements IFlutterDirectory<String> {
     static FlutterDirectory getDirectoryFactory(String method, Context context) {
         FlutterDirectory directory = null;
         if (TextUtils.equals(method, EXTERNAL_STORAGE_DIRECTORY)) {
-            directory = new ExternalStorageFlutterDirectory(context);
+            directory = new ExternalStorageDirectory(context);
         } else if (TextUtils.equals(method, EXTERNAL_STORAGE_TEMPORARY_DIRECTORY)) {
             directory = new ExternalStorageTemporaryDirectory(context);
         } else if (TextUtils.equals(method, INTERNAL_STORAGE_TEMPORARY_DIRECTORY)) {
