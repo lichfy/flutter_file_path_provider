@@ -26,7 +26,6 @@ class _FilePathProviderApplicationState extends State<FilePathProviderApplicatio
   static const String _INTERNAL_STORAGE_FILE_DIRECTOR = "getInternalStorageFileDirectory";
 
   String _directory = '请选择需要的功能';
-  FlutterFilePathProvider filePathProvide = new FlutterFilePathProvider();
 
   @override
   void initState() {
@@ -129,48 +128,48 @@ class _FilePathProviderApplicationState extends State<FilePathProviderApplicatio
   }
 
   void _getExternalStorageDirectory() async {
-    FlutterFilePathResult result = await filePathProvide.getExternalStorageDirectory();
+    FlutterFilePathResult result = await FlutterFilePathProvider.instance.getExternalStorageDirectory();
     _handlerResult(result);
   }
 
   void _getHomeDirectory() async {
-    filePathProvide.getHomeDirectory().then((result) {
+    FlutterFilePathProvider.instance.getHomeDirectory().then((result) {
       _handlerResult(result);
     });
   }
 
   void _getExternalStorageTemporaryDirectory() async {
-    filePathProvide.getExternalStorageTemporaryDirectory().then((result) {
+    FlutterFilePathProvider.instance.getExternalStorageTemporaryDirectory().then((result) {
       _handlerResult(result);
     });
   }
 
   void _getInternalStorageTemporaryDirectory() async {
-    filePathProvide.getInternalStorageTemporaryDirectory().then((result) {
+    FlutterFilePathProvider.instance.getInternalStorageTemporaryDirectory().then((result) {
       _handlerResult(result);
     });
   }
 
   void _getExternalStorageCacheDirectory() async {
-    filePathProvide.getExternalStorageCacheDirectory().then((result) {
+    FlutterFilePathProvider.instance.getExternalStorageCacheDirectory().then((result) {
       _handlerResult(result);
     });
   }
 
   void _getInternalStorageCacheDirectory() async {
-    filePathProvide.getInternalStorageCacheDirectory().then((result) {
+    FlutterFilePathProvider.instance.getInternalStorageCacheDirectory().then((result) {
       _handlerResult(result);
     });
   }
 
   void _getExternalStorageFileDirectory() async {
-    filePathProvide.getExternalStorageFileDirectory().then((result) {
+    FlutterFilePathProvider.instance.getExternalStorageFileDirectory().then((result) {
       _handlerResult(result);
     });
   }
 
   void _getInternalStorageFileDirectory() async {
-    filePathProvide.getInternalStorageFileDirectory().then((result) {
+    FlutterFilePathProvider.instance.getInternalStorageFileDirectory().then((result) {
       _handlerResult(result);
     });
   }
@@ -179,6 +178,7 @@ class _FilePathProviderApplicationState extends State<FilePathProviderApplicatio
     setState(() {
       if (result.code == 0) {
         _directory = result.directory.path;
+        print('$result');
       } else {
         _directory = '读取错误：${result.code}  ${result.message}';
       }

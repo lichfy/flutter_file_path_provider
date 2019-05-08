@@ -5,7 +5,7 @@ import 'dart:io';
 
 void main() {
   const _FLUTTER_FILE_PATH_PROVIDER_CHANNEL_NAME = 'flutter_file_path_provider';
-  const MethodChannel channel = MethodChannel(_FLUTTER_FILE_PATH_PROVIDER_CHANNEL_NAME);
+  const MethodChannel _channel = MethodChannel(_FLUTTER_FILE_PATH_PROVIDER_CHANNEL_NAME);
 
   FlutterFilePathProvider flutterFilePathProvider = new FlutterFilePathProvider();
 
@@ -14,7 +14,6 @@ void main() {
   tearDown(() {});
 
   test('getExternalStorageDirectory', () async {
-//    FlutterFilePathResult filePathResult = new FlutterFilePathResult(new Directory("/storage/emulated/0/"), "", 0);
     expect(await flutterFilePathProvider.getExternalStorageDirectory(), FlutterFilePathResult);
   });
 

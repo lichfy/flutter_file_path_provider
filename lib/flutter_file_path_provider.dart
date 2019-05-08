@@ -3,10 +3,21 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 
 class FlutterFilePathProvider {
-  FlutterFilePathProvider();
+  factory FlutterFilePathProvider() => _getInstance();
 
+  static FlutterFilePathProvider get instance => _getInstance();
+  static FlutterFilePathProvider _instance;
   static const _FLUTTER_FILE_PATH_PROVIDER_CHANNEL_NAME = 'flutter_file_path_provider';
   static const MethodChannel _channel = const MethodChannel(_FLUTTER_FILE_PATH_PROVIDER_CHANNEL_NAME);
+
+  FlutterFilePathProvider._internal();
+
+  static FlutterFilePathProvider _getInstance() {
+    if (_instance == null) {
+      _instance = new FlutterFilePathProvider._internal();
+    }
+    return _instance;
+  }
 
   // SD 卡根目录，只支持 Android
   static const String _EXTERNAL_STORAGE_DIRECTORY = 'getExternalStorageDirectory';
