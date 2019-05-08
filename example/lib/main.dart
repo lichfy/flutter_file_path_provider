@@ -127,8 +127,9 @@ class _FilePathProviderApplicationState extends State<FilePathProviderApplicatio
   }
 
   void _getExternalStorageDirectory() async {
-    FlutterFilePathResult result = await FlutterFilePathProvider.instance.getExternalStorageDirectory();
-    _handlerResult(result);
+    FlutterFilePathProvider.instance.getExternalStorageDirectory().then((result) {
+      _handlerResult(result);
+    });
   }
 
   void _getHomeDirectory() async {

@@ -1,5 +1,5 @@
 name: flutter_file_path_provider_example
-description: Demonstrates how to use the flutter_file_path_provider plugin.
+description: flutter_file_path_provider 项目的示例
 publish_to: 'none'
 
 environment:
