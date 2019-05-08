@@ -1,8 +1,8 @@
 name: flutter_file_path_provider
-description: flutter_file_path_provider
-version: 0.0.1
-author:
-homepage:
+description: flutter_file_path_provider 是一款用于读取设备上存储目录的 Flutter 插件，同时支持 Android 和 iOS 两个平台。
+version: 0.0.2
+author: fiissh.zhao <zhaoyongchun2010@gmail.com>
+homepage: https://github.com/fiissh/flutter_file_path_provider
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
