@@ -6,7 +6,7 @@ class FlutterFilePathProvider {
   factory FlutterFilePathProvider() => _getInstance();
 
   static FlutterFilePathProvider get instance => _getInstance();
-  static FlutterFilePathProvider _instance;
+  static FlutterFilePathProvider? _instance;
   static const _FLUTTER_FILE_PATH_PROVIDER_CHANNEL_NAME = 'flutter_file_path_provider';
   static const MethodChannel _channel = const MethodChannel(_FLUTTER_FILE_PATH_PROVIDER_CHANNEL_NAME);
 
@@ -16,7 +16,7 @@ class FlutterFilePathProvider {
     if (_instance == null) {
       _instance = new FlutterFilePathProvider._internal();
     }
-    return _instance;
+    return _instance!;
   }
 
   // SD 卡根目录，只支持 Android
@@ -86,19 +86,19 @@ class FlutterFilePathProvider {
       }
     } on MissingPluginException catch (missingPluginException) {
       // 找不到插件，该异常由设备平台调用 result.notImplemented(); 返回
-      return new FlutterFilePathResult(null, missingPluginException.message, 12);
+      return new FlutterFilePathResult(null, missingPluginException.message??'', 12);
     } on FormatException catch (formatException) {
       // 格式化异常
       return new FlutterFilePathResult(null, formatException.message, 11);
     } on PlatformException catch (platformException) {
       // 从平台传递来的错误信息
-      return new FlutterFilePathResult(null, platformException.message, int.parse(platformException.code));
+      return new FlutterFilePathResult(null, platformException.message??'', int.parse(platformException.code));
     }
   }
 }
 
 class FlutterFilePathResult {
-  Directory directory;
+  Directory? directory;
   String message;
 
   // 0表示成功，即此时 directory 不为 null
