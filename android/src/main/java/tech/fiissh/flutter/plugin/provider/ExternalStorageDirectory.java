@@ -15,6 +15,6 @@ class ExternalStorageDirectory extends FlutterDirectory {
 
     @Override
     public String getDirectory() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath();
+        return getContext().getExternalFilesDir(null).getAbsolutePath();
     }
 }
